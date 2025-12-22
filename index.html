@@ -98,7 +98,7 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>20</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span id="age"></span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span> Bachelor of Commerce (B.Com)</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong><span>kushagraverma120@gmail.com</span></li>
                 </ul>
@@ -365,6 +365,21 @@
     script.src = "assets/js/whatsapp.js?v=" + randomVersion;
     script.defer = true;
     document.head.appendChild(script);
+
+    // Date of Birth Script
+    const dob = new Date(2004, 5, 16); 
+
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+
+  const monthDiff = today.getMonth() - dob.getMonth();
+  const dayDiff = today.getDate() - dob.getDate();
+    
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+    age--;
+  }
+
+  document.getElementById("age").innerText = age;
   </script>
 </body>
 
